@@ -22,6 +22,13 @@ function(print_section_sizes TARGET)
 endfunction()
 
 #---------------------------------------------------------------------------------------
+# Prints section details
+#---------------------------------------------------------------------------------------
+function(print_sections TARGET)
+    add_custom_command(TARGET ${TARGET} POST_BUILD COMMAND ${CMAKE_OBJDUMP} -h ${TARGET})
+endfunction()
+
+#---------------------------------------------------------------------------------------
 # Creates output in hex format
 #---------------------------------------------------------------------------------------
 function(create_hex_output TARGET)
